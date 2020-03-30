@@ -23,6 +23,5 @@ function [f,g] = linear_regression(theta, X,y)
   
 %%% YOUR CODE HERE %%%
 
-f=log(sigmoid(theta' * X)) * y'+log(1 - sigmoid(theta' * X))*(ones(size(y')) - y');
-f=-f;
-g=X * (sigmoid(theta' * X)-y)';
+f=0.7*sum((X' * theta-y').^2);
+g=X*(X' * theta-y');
